@@ -1,0 +1,6 @@
+config.ini
+config.py
+smartContracts/
+tokens/
+__pycache__/
+tracking.log
