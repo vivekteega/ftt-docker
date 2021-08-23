@@ -43,7 +43,7 @@ def retryRequest(tempserverlist, apicall):
 
 
 def multiRequest(apicall, net):
-    testserverlist = ['http://0.0.0.0:8495/']
+    testserverlist = ['https://testnet-flosight.duckdns.org/']
     mainserverlist = ['https://flosight.duckdns.org/','http://0.0.0.0:9495/']
     if net == 'mainnet':
         return retryRequest(mainserverlist, apicall)
@@ -2443,7 +2443,7 @@ if config['DEFAULT']['NET'] == 'mainnet':
     neturl = 'http://0.0.0.0:9495/'
     localapi = config['DEFAULT']['FLO_CLI_PATH']
 elif config['DEFAULT']['NET'] == 'testnet':
-    neturl = 'http://0.0.0.0:8495/'
+    neturl = 'https://testnet-flosight.duckdns.org/'
     localapi = '{} --testnet'.format(config['DEFAULT']['FLO_CLI_PATH'])
 else:
     logger.error(
@@ -2483,7 +2483,7 @@ if args.reset == 1:
 
 
 def switchNeturl(currentneturl):
-    mainserverlist = ['http://0.0.0.0:8495/']
+    mainserverlist = ['https://testnet-flosight.duckdns.org/']
     neturlindex = mainserverlist.index(currentneturl)
     if neturlindex+1 >= len(mainserverlist):
         return mainserverlist[neturlindex+1  - len(mainserverlist)]
@@ -2521,7 +2521,7 @@ scanBlockchain()
 # Now we connect to flosight's websocket API to get information about the latest blocks
 # Neturl is the URL for Flosight API whose websocket endpoint is being connected to
 
-neturl = 'https://flosight.duckdns.org/'
+neturl = 'https://testnet-flosight.duckdns.org/'
 sio = socketio.Client()
 # Connect to a websocket endpoint and wait for further events
 reconnectWebsocket(sio)
